@@ -14,5 +14,8 @@ describe('String Calculator', () => {
     expect(add('1,2')).toBe(3);
     expect(add('2,1')).toBe(3);
   });
-
+  test('should return sum if string contains new line delimiter', () => {
+    expect(add('1\n,2,3')).toBe(6);
+    expect(add('1,2\n3,1')).toBe(7);
+  });
 });
