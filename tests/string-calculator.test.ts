@@ -22,4 +22,11 @@ describe('String Calculator', () => {
     expect(add('//;\n1;2;3')).toBe(6);
     expect(add('//&\n1&2\n3')).toBe(6);
   });
+  test('should return error if string contains negative numbers', () => {
+    expect(() => add('1,-2,3')).toThrow('negative numbers not allowed: -2');
+    // multiple negative numbers
+    expect(() => add('1,-2,-3')).toThrow('negative numbers not allowed: -2,-3');
+    // with custom delimiter
+    expect(() => add('//;\n1;-2;-3')).toThrow('negative numbers not allowed: -2,-3');
+  });
 });
